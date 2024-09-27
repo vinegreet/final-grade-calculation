@@ -38,6 +38,7 @@ def main():
     quiz_2_grades = np.array(extract_quiz_grades(quiz_2_data_sorted_by_SID))
 
     ### Calculating total grades with applying multipliers
+
     homeworks_total = np.array(homework_grades) * HW_MULTIPLIER
 
     exams_total = np.array(exam_grades) * EXAM_MULTIPLIER
