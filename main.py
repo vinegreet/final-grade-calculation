@@ -34,16 +34,15 @@ def main():
     quiz_1_data_sorted_by_SID = sort_by_SID(quiz_1_data)
     quiz_2_data_sorted_by_SID = sort_by_SID(quiz_2_data)
 
-    quiz_1_grades = np.array(extract_quiz_grades(quiz_1_data_sorted_by_SID)) / QUIZ_QUANTITY
-    quiz_2_grades = np.array(extract_quiz_grades(quiz_2_data_sorted_by_SID)) / QUIZ_QUANTITY
+    quiz_1_grades = np.array(extract_quiz_grades(quiz_1_data_sorted_by_SID))
+    quiz_2_grades = np.array(extract_quiz_grades(quiz_2_data_sorted_by_SID))
 
     ### Calculating total grades with applying multipliers
     homeworks_total = np.array(homework_grades) * HW_MULTIPLIER
 
     exams_total = np.array(exam_grades) * EXAM_MULTIPLIER
 
-    quizzes_total = quiz_1_grades * QUIZ_MULTIPLIER + quiz_2_grades * QUIZ_MULTIPLIER
-
+    quizzes_total = (quiz_1_grades + quiz_2_grades) * QUIZ_MULTIPLIER / QUIZ_QUANTITY
 
     ### Calculating total grades
 
