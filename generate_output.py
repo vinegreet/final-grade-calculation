@@ -27,6 +27,3 @@ def generate_output(students, grades_total):
         
         # Save the group's DataFrame to the CSV file
         group_df_cleaned.to_csv(csv_filename, index=False)
-
-    # Create a dict of students, grouped by their groups
-    # students_grouped_dict = students_grouped.apply(lambda student: student.to_dict('records')).to_dict()
