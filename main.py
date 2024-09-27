@@ -54,3 +54,5 @@ grades_total = grades_total_floats.astype(int)
 ### Generating the output
 
 generate_output(students, grades_total)
+
+print('Successfully calculated final grades and generated sheets!')
