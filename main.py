@@ -28,7 +28,7 @@ with open('./../data-grades/quiz_2_grades.csv', 'r') as quiz_2_csv_data:
 
 hw_and_exams_data_sorted_by_SID = sort_by_SID(hw_and_exams_data)
 
-homework_grade_lists, exam_grades = extract_grades_hw_and_exams(hw_and_exams_data_sorted_by_SID)
+homework_grades, exam_grades = extract_grades_hw_and_exams(hw_and_exams_data_sorted_by_SID)
 
 ### Quizzes grades
 
@@ -39,8 +39,6 @@ quiz_1_grades = np.array(extract_quiz_grades(quiz_1_data_sorted_by_SID)) / QUIZ_
 quiz_2_grades = np.array(extract_quiz_grades(quiz_2_data_sorted_by_SID)) / QUIZ_QUANTITY
 
 ### Calculating total grades with applying multipliers
-
-homework_grades = np.sum(homework_grade_lists, axis=1) / len(homework_grade_lists[0])
 homeworks_total = homework_grades * HW_MULTIPLIER
 
 exams_total = np.array(exam_grades) * EXAM_MULTIPLIER

@@ -1,7 +1,12 @@
+import numpy as np
 from constants import QUIZ_DATA_CONVERT_MULTIPLIER
 
 
 def extract_grades_hw_and_exams(hw_and_exams_data):
+    # Extract exam grades
+    exam_grades = [int(student['Exam']) for student in hw_and_exams_data]
+
+    # Extract homework grades
     homework_grade_lists = []
 
     for row in hw_and_exams_data:
@@ -13,10 +18,10 @@ def extract_grades_hw_and_exams(hw_and_exams_data):
         ]
         homework_grade_lists.append(homework_grades)
 
-    # Extract exam grades
-    exam_grades = [int(student['Exam']) for student in hw_and_exams_data]
+    # Calculate averages for homeworks
+    homework_grades = np.sum(homework_grade_lists, axis=1) / len(homework_grade_lists[0])
 
-    return homework_grade_lists, exam_grades
+    return homework_grades, exam_grades
 
 def extract_quiz_grades(quiz_data):
     return [
